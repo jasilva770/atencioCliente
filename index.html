@@ -1,0 +1,579 @@
+```html
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Didáctica: Atención al Cliente con Autogestión Emocional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.19/index.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/playfair-display@5.0.19/index.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            900: '#14532d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f8fafc; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Print Styles */
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white; color: black; }
+            .card, .glass, .timeline-item { box-shadow: none !important; border: 1px solid #e2e8f0 !important; break-inside: avoid; }
+            a { text-decoration: none; color: inherit; }
+        }
+
+        /* Focus States for Accessibility */
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid #2563eb;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        /* Timeline Connector */
+        .timeline-connector::before {
+            content: '';
+            position: absolute;
+            left: 2rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #6366f1 0%, #ec4899 100%);
+        }
+        @media (min-width: 768px) {
+            .timeline-connector::before { left: 3rem; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Navigation / Header -->
+    <header class="relative bg-gradient-to-br from-indigo-900 via-blue-800 to-sky-700 text-white overflow-hidden">
+        <!-- Abstract Background Elements -->
+        <div class="absolute inset-0 opacity-20 pointer-events-none">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="0.5"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+                <circle cx="20%" cy="20%" r="150" fill="url(#g1)" opacity="0.5"/>
+                <circle cx="85%" cy="80%" r="200" fill="url(#g2)" opacity="0.4"/>
+            </svg>
+        </div>
+
+        <div class="relative max-w-6xl mx-auto px-6 pt-16 pb-20 lg:pb-28">
+            <nav class="flex justify-between items-center mb-12 fade-in-up">
+                <div class="flex items-center gap-2">
+                    <span class="bg-white/20 p-2 rounded-lg backdrop-blur-sm">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </span>
+                    <span class="font-semibold tracking-wide text-sm uppercase">Guía Didáctica 2026</span>
+                </div>
+                <button onclick="window.print()" class="hidden sm:flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 px-4 py-2 rounded-full transition text-sm font-medium backdrop-blur-sm no-print">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                    Imprimir
+                </button>
+            </nav>
+
+            <div class="max-w-3xl fade-in-up" style="transition-delay: 100ms;">
+                <span class="inline-block px-3 py-1 rounded-full bg-sky-400/20 border border-sky-300/30 text-sky-100 text-xs font-semibold tracking-wider uppercase mb-4 backdrop-blur-sm">Formación Continua</span>
+                <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">Atención al Cliente con Enfoque en la Autogestión de Emociones</h1>
+                <p class="text-lg text-slate-200 leading-relaxed mb-8 max-w-2xl">Transforma la presión en conexión. Una guía práctica, basada en neurociencia e inteligencia emocional, para facilitar talleres de alto impacto.</p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-3 px-4 flex items-center gap-3">
+                        <span class="text-2xl">⏱️</span>
+                        <div>
+                            <p class="text-xs text-slate-300 uppercase tracking-wide font-medium">Duración</p>
+                            <p class="font-semibold">4 Horas</p>
+                        </div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-3 px-4 flex items-center gap-3">
+                        <span class="text-2xl">👥</span>
+                        <div>
+                            <p class="text-xs text-slate-300 uppercase tracking-wide font-medium">Público</p>
+                            <p class="font-semibold">Atención al Cliente & Ventas</p>
+                        </div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-3 px-4 flex items-center gap-3">
+                        <span class="text-2xl">🧠</span>
+                        <div>
+                            <p class="text-xs text-slate-300 uppercase tracking-wide font-medium">Enfoque</p>
+                            <p class="font-semibold">Práctico y Vivencial</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <div class="max-w-6xl mx-auto px-6 -mt-10 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 pb-20">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="hidden lg:block lg:col-span-3 fade-in-up" style="transition-delay: 200ms;">
+            <div class="sticky top-8">
+                <nav class="bg-white rounded-2xl shadow-lg shadow-slate-200/50 p-5 border border-slate-100">
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4 px-2">Contenidos</h3>
+                    <ul class="space-y-1">
+                        <li><a href="#objetivos" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-50 text-slate-600 transition text-sm font-medium group"><span class="w-2 h-2 rounded-full bg-slate-300 group-hover:bg-indigo-500 transition"></span>Objetivos</a></li>
+                        <li><a href="#materiales" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-50 text-slate-600 transition text-sm font-medium group"><span class="w-2 h-2 rounded-full bg-slate-300 group-hover:bg-indigo-500 transition"></span>Materiales</a></li>
+                        <li><a href="#cronograma" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-50 text-slate-600 transition text-sm font-medium group"><span class="w-2 h-2 rounded-full bg-slate-300 group-hover:bg-indigo-500 transition"></span>Desarrollo (Bloques)</a></li>
+                        <li><a href="#pausa" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-50 text-slate-600 transition text-sm font-medium group"><span class="w-2 h-2 rounded-full bg-slate-300 group-hover:bg-teal-500 transition"></span>Descanso Activo</a></li>
+                        <li><a href="#evaluacion" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-50 text-slate-600 transition text-sm font-medium group"><span class="w-2 h-2 rounded-full bg-slate-300 group-hover:bg-amber-500 transition"></span>Evaluación y Cierre</a></li>
+                        <li><a href="#anexo" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-50 text-slate-600 transition text-sm font-medium group"><span class="w-2 h-2 rounded-full bg-slate-300 group-hover:bg-rose-500 transition"></span>Anexo</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Content Stream -->
+        <main class="lg:col-span-9 space-y-12">
+            
+            <!-- Objetivos -->
+            <section id="objetivos" class="fade-in-up bg-white rounded-2xl p-8 shadow-sm border border-slate-200/60">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-900 font-serif">Objetivos de Aprendizaje</h2>
+                </div>
+                <p class="text-slate-600 mb-6 leading-relaxed">Al finalizar este taller, las personas participantes serán capaces de:</p>
+                <div class="grid gap-4 md:grid-cols-3">
+                    <div class="p-5 bg-slate-50 rounded-xl border border-slate-100 hover:shadow-md transition-shadow">
+                        <h3 class="font-bold text-slate-800 mb-2">Identificar</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">Sus propias señales fisiológicas y cognitivas de estrés emocional en tiempo real durante la interacción con clientes.</p>
+                    </div>
+                    <div class="p-5 bg-slate-50 rounded-xl border border-slate-100 hover:shadow-md transition-shadow">
+                        <h3 class="font-bold text-slate-800 mb-2">Aplicar</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">Al menos tres técnicas de regulación emocional (respiración, pausa estratégica y reestructuración) para evitar la reactividad.</p>
+                    </div>
+                    <div class="p-5 bg-slate-50 rounded-xl border border-slate-100 hover:shadow-md transition-shadow">
+                        <h3 class="font-bold text-slate-800 mb-2">Transformar</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">Diálogos tensos en conversaciones colaborativas mediante la empatía activa y la validación emocional.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Materiales -->
+            <section id="materiales" class="fade-in-up">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-purple-50 flex items-center justify-center text-purple-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-900 font-serif">Materiales Necesarios</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/60">
+                        <h3 class="font-bold text-slate-800 mb-4 flex items-center gap-2">📦 Recursos Físicos</h3>
+                        <ul class="space-y-3 text-sm text-slate-600">
+                            <li class="flex items-start gap-3"><span class="text-indigo-500 mt-0.5">•</span> Proyector, computador y pantalla.</li>
+                            <li class="flex items-start gap-3"><span class="text-indigo-500 mt-0.5">•</span> Papelógrafos, marcadores gruesos y post-its.</li>
+                            <li class="flex items-start gap-3"><span class="text-indigo-500 mt-0.5">•</span> Tarjetas impresas de "Técnicas de Regulación".</li>
+                            <li class="flex items-start gap-3"><span class="text-indigo-500 mt-0.5">•</span> Reloj o temporizador visible para el grupo.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/60">
+                        <h3 class="font-bold text-slate-800 mb-4 flex items-center gap-2">💻 Recursos Digitales</h3>
+                        <ul class="space-y-3 text-sm text-slate-600">
+                            <li class="flex items-start gap-3"><span class="text-purple-500 mt-0.5">•</span> Presentación de apoyo (diapositivas).</li>
+                            <li class="flex items-start gap-3"><span class="text-purple-500 mt-0.5">•</span> Playlist instrumental suave (para role-playing).</li>
+                            <li class="flex items-start gap-3"><span class="text-purple-500 mt-0.5">•</span> Formato PDF: "Mi Plan de Autogestión".</li>
+                            <li class="flex items-start gap-3"><span class="text-purple-500 mt-0.5">•</span> Guía de casos prácticos para simulación.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cronograma (Timeline) -->
+            <section id="cronograma" class="fade-in-up relative timeline-connector space-y-12 pl-0 md:pl-8">
+                <div class="flex items-center gap-4 mb-8 md:hidden">
+                    <div class="w-12 h-12 rounded-xl bg-rose-50 flex items-center justify-center text-rose-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-900 font-serif">Desarrollo por Bloques</h2>
+                </div>
+
+                <!-- Bloque 1 -->
+                <article class="relative pl-16 md:pl-20">
+                    <div class="absolute left-4 md:left-8 top-0 -translate-x-1/2 w-10 h-10 rounded-full bg-indigo-100 border-4 border-white shadow-md flex items-center justify-center text-indigo-700 font-bold text-xs z-10">0:00</div>
+                    <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200/60 hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
+                            <h3 class="text-xl font-bold text-slate-900 font-serif">Bloque 1: Apertura y Encuadre</h3>
+                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-bold uppercase tracking-wide">0:00 - 0:30</span>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="text-xs font-bold text-indigo-600 uppercase tracking-wider mb-2">Técnica y Contenido</h4>
+                                <p class="text-sm text-slate-600 leading-relaxed mb-3">Expositiva-participativa. Dinámica de <em>"El termómetro emocional"</em>. Bienvenida, presentación de objetivos. Introducción al concepto: <strong>"Las emociones no son buenas ni malas, son datos"</strong>. Explicación de la amígdala cerebral y el secuestro emocional.</p>
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                                <h4 class="text-xs font-bold text-indigo-600 uppercase tracking-wider mb-2">Actividad Principal</h4>
+                                <p class="text-sm text-slate-600 leading-relaxed">Cada participante marca su nivel de estrés actual (1-10) en una escala visual. Comparten en parejas. El facilitador normaliza las respuestas y conecta con el tema central.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Bloque 2 -->
+                <article class="relative pl-16 md:pl-20">
+                    <div class="absolute left-4 md:left-8 top-0 -translate-x-1/2 w-10 h-10 rounded-full bg-blue-100 border-4 border-white shadow-md flex items-center justify-center text-blue-700 font-bold text-xs z-10">0:30</div>
+                    <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200/60 hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
+                            <h3 class="text-xl font-bold text-slate-900 font-serif">Bloque 2: Inteligencia Emocional Aplicada</h3>
+                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-bold uppercase tracking-wide">0:30 - 1:15</span>
+                        </div>
+                        <p class="text-sm text-slate-600 mb-5 leading-relaxed">Autoconciencia, autorregulación y empatía en el servicio. Diferencia clave entre <span class="bg-red-100 text-red-800 px-2 py-0.5 rounded">reacción (automática)</span> y <span class="bg-green-100 text-green-800 px-2 py-0.5 rounded">respuesta (consciente)</span>.</p>
+                        
+                        <div class="bg-emerald-50 border-l-4 border-emerald-400 p-4 rounded-r-lg mb-6">
+                            <p class="text-emerald-800 text-sm font-medium">💡 <strong>Tip Emocional:</strong> Cuando un cliente grita, el cerebro lo interpreta como una amenaza física. La primera regla es: <em>No tomarlo personal, tomarlo como una señal de malestar del otro.</em></p>
+                        </div>
+
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                            <h4 class="text-xs font-bold text-blue-600 uppercase tracking-wider mb-2">Actividad: Mapa de Señales Corporales</h4>
+                            <p class="text-sm text-slate-600 leading-relaxed">En grupos de 3, dibujan una silueta humana. Marcan dónde sienten físicamente el estrés (mandíbula, estómago, manos, respiración). Discuten cómo reconocerlo ANTES de explotar.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Bloque 3 -->
+                <article class="relative pl-16 md:pl-20">
+                    <div class="absolute left-4 md:left-8 top-0 -translate-x-1/2 w-10 h-10 rounded-full bg-cyan-100 border-4 border-white shadow-md flex items-center justify-center text-cyan-700 font-bold text-xs z-10">1:15</div>
+                    <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200/60 hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
+                            <h3 class="text-xl font-bold text-slate-900 font-serif">Bloque 3: Técnicas de Regulación en Tiempo Real</h3>
+                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-bold uppercase tracking-wide">1:15 - 2:00</span>
+                        </div>
+                        
+                        <div class="grid gap-4 md:grid-cols-2 mb-6">
+                            <div class="p-4 bg-gradient-to-br from-slate-50 to-white rounded-xl border border-slate-100">
+                                <h4 class="font-bold text-slate-800 mb-1">1. Respiración 4-7-8</h4>
+                                <p class="text-xs text-slate-600">Inhalar 4s, retener 7s, exhalar 8s. Reduce el cortisol inmediatamente.</p>
+                            </div>
+                            <div class="p-4 bg-gradient-to-br from-slate-50 to-white rounded-xl border border-slate-100">
+                                <h4 class="font-bold text-slate-800 mb-1">2. Pausa Estratégica</h4>
+                                <p class="text-xs text-slate-600">Contar hasta 3 mentalmente. Usar frases puente: <em>"Déjeme revisar eso con exactitud..."</em></p>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                            <h4 class="text-xs font-bold text-cyan-600 uppercase tracking-wider mb-2">Actividad: Práctica Guiada</h4>
+                            <p class="text-sm text-slate-600 leading-relaxed">El facilitador simula un escenario tenso. Los participantes deben aplicar la pausa y la respiración sin hablar. Luego comentan cómo cambió su pulso mental.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- PAUSA DESTACADA -->
+                <article id="pausa" class="relative pl-16 md:pl-20">
+                    <div class="absolute left-4 md:left-8 top-0 -translate-x-1/2 w-10 h-10 rounded-full bg-teal-100 border-4 border-white shadow-md flex items-center justify-center text-teal-700 font-bold text-xs z-10">2:00</div>
+                    <div class="bg-gradient-to-br from-teal-500 to-emerald-600 rounded-3xl p-1 shadow-xl shadow-teal-200/50">
+                        <div class="bg-white/90 backdrop-blur-sm rounded-[1.2rem] p-6 md:p-8">
+                            <div class="flex flex-col md:flex-row items-center gap-8">
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <span class="text-3xl">☕</span>
+                                        <h3 class="text-2xl font-bold text-teal-900 font-serif">Descanso Activo</h3>
+                                    </div>
+                                    <p class="text-teal-800/80 text-sm leading-relaxed mb-5">15 minutos para oxigenar, hidratarse y estirar. El cerebro necesita el descanso para consolidar lo aprendido. ¡Evita revisar el celular!</p>
+                                    <div class="flex gap-2 flex-wrap">
+                                        <span class="px-3 py-1 bg-white rounded-full text-teal-700 text-xs font-bold border border-teal-100 shadow-sm">Estiramientos</span>
+                                        <span class="px-3 py-1 bg-white rounded-full text-teal-700 text-xs font-bold border border-teal-100 shadow-sm">Caminar</span>
+                                        <span class="px-3 py-1 bg-white rounded-full text-teal-700 text-xs font-bold border border-teal-100 shadow-sm">Agua</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white p-5 rounded-2xl shadow-lg border border-teal-50 w-full md:w-52 text-center flex flex-col items-center">
+                                    <p class="text-xs text-teal-500 font-bold uppercase tracking-widest mb-3">Temporizador</p>
+                                    <div class="relative w-24 h-24 mb-4">
+                                        <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                                            <circle cx="50" cy="50" r="45" fill="none" stroke="#ccfbf1" stroke-width="8"></circle>
+                                            <circle id="timer-circle" cx="50" cy="50" r="45" fill="none" stroke="#0d9488" stroke-width="8" stroke-dasharray="283" stroke-dashoffset="0" stroke-linecap="round" class="transition-all duration-1000 ease-linear"></circle>
+                                        </svg>
+                                        <div id="timer-text" class="absolute inset-0 flex items-center justify-center font-mono text-2xl font-bold text-teal-800">15:00</div>
+                                    </div>
+                                    <button id="start-pause-btn" onclick="toggleTimer()" class="w-full py-2.5 bg-teal-600 hover:bg-teal-700 active:bg-teal-800 text-white rounded-lg text-sm font-bold transition shadow-md no-print">
+                                        Iniciar Pausa
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Bloque 4 -->
+                <article class="relative pl-16 md:pl-20">
+                    <div class="absolute left-4 md:left-8 top-0 -translate-x-1/2 w-10 h-10 rounded-full bg-rose-100 border-4 border-white shadow-md flex items-center justify-center text-rose-700 font-bold text-xs z-10">2:15</div>
+                    <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200/60 hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
+                            <h3 class="text-xl font-bold text-slate-900 font-serif">Bloque 4: Role-Playing y Diálogos Transformados</h3>
+                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-bold uppercase tracking-wide">2:15 - 3:00</span>
+                        </div>
+                        <p class="text-sm text-slate-600 mb-6 leading-relaxed">Práctica en tríos: Empleado, Cliente Difícil, Observador. Rotación cada 10 min. Se aplican las técnicas vistas.</p>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-red-50 border border-red-100 rounded-xl p-5 relative overflow-hidden">
+                                <div class="absolute top-0 left-0 w-1 h-full bg-red-500"></div>
+                                <h4 class="font-bold text-red-800 mb-3 text-sm uppercase tracking-wide flex items-center gap-2">❌ Antes: Reactividad</h4>
+                                <div class="space-y-3 text-sm">
+                                    <p><span class="font-bold text-red-700">Cliente:</span> <em>"¡Es inaceptable! Llevo esperando 40 minutos, ¿no saben nada?"</em></p>
+                                    <p><span class="font-bold text-red-700">Empleado:</span> <em>"Señor, no es mi culpa, el sistema se cayó. Si se calma, le ayudo."</em></p>
+                                    <p class="text-xs text-red-600 mt-2 pt-2 border-t border-red-200 italic">Resultado: Validación negativa, tono confrontacional, cliente más alterado.</p>
+                                </div>
+                            </div>
+                            <div class="bg-blue-50 border border-blue-100 rounded-xl p-5 relative overflow-hidden">
+                                <div class="absolute top-0 left-0 w-1 h-full bg-blue-500"></div>
+                                <h4 class="font-bold text-blue-800 mb-3 text-sm uppercase tracking-wide flex items-center gap-2">✅ Después: Autogestión</h4>
+                                <div class="space-y-3 text-sm">
+                                    <p><span class="font-bold text-blue-700">Empleado:</span> <em>(Respira 4-7-8) "Entiendo perfectamente su frustración, señor. Esperar tanto es agotador. Voy a revisar personalmente su caso ahora mismo."</em></p>
+                                    <p class="text-xs text-blue-600 mt-2 pt-2 border-t border-blue-200 italic">Resultado: Validación emocional, toma de control, tono empático y profesional.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Bloque 5 -->
+                <article class="relative pl-16 md:pl-20">
+                    <div class="absolute left-4 md:left-8 top-0 -translate-x-1/2 w-10 h-10 rounded-full bg-amber-100 border-4 border-white shadow-md flex items-center justify-center text-amber-700 font-bold text-xs z-10">3:00</div>
+                    <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200/60 hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
+                            <h3 class="text-xl font-bold text-slate-900 font-serif">Bloque 5: Reestructuración Cognitiva</h3>
+                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-bold uppercase tracking-wide">3:00 - 3:30</span>
+                        </div>
+                        <p class="text-sm text-slate-600 mb-5 leading-relaxed">Cómo cambiamos el significado de la interacción. De <em>"Este cliente es un problema"</em> a <em>"Este cliente necesita una solución y está sufriendo"</em>.</p>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                            <h4 class="text-xs font-bold text-amber-600 uppercase tracking-wider mb-2">Actividad: El Reframe Grupal</h4>
+                            <p class="text-sm text-slate-600 leading-relaxed">Se leen 3 frases típicas de quejas. En plenaria, el grupo debe "reformatear" el pensamiento del empleado antes de responder. El facilitador anota en papelógrafo las nuevas perspectivas.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Evaluación y Cierre -->
+                <section id="evaluacion" class="mt-12 pl-16 md:pl-20 relative">
+                    <div class="absolute left-4 md:left-8 top-0 -translate-x-1/2 w-10 h-10 rounded-full bg-emerald-100 border-4 border-white shadow-md flex items-center justify-center text-emerald-700 font-bold text-xs z-10">3:30</div>
+                    
+                    <div class="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-3xl p-1 shadow-xl">
+                        <div class="bg-white rounded-[1.2rem] p-6 md:p-8">
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+                                </div>
+                                <h2 class="text-2xl font-bold text-slate-900 font-serif">Evaluación Formativa y Cierre</h2>
+                            </div>
+                            
+                            <div class="mb-6 bg-orange-50 p-5 rounded-xl border border-orange-100">
+                                <h4 class="font-bold text-orange-800 mb-3 text-sm">📋 Mini-Quiz Rápido (Mano alzada)</h4>
+                                <ul class="space-y-2 text-sm text-orange-900 list-disc list-inside">
+                                    <li>¿Cuál es el primer paso ante un grito? (A) Gritar más fuerte (B) Respirar y pausar</li>
+                                    <li>¿Qué técnica usamos para bajar el pulso? (4-7-8 o 5-5)</li>
+                                    <li>¿Por qué no debemos tomarlo personal?</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 mb-6">
+                                <h4 class="font-bold text-slate-800 mb-4">📝 Acción de Compromiso: "Mi Plan de Autogestión"</h4>
+                                <p class="text-sm text-slate-600 mb-4">Cada participante completa su tarjeta final:</p>
+                                <div class="space-y-3 text-sm">
+                                    <label class="flex items-start gap-2 bg-white p-3 rounded-lg border border-slate-200 cursor-pointer hover:border-indigo-300 transition">
+                                        <input type="checkbox" class="mt-0.5 accent-indigo-600">
+                                        <span>1. Cuando sienta <strong class="text-indigo-600 border-b border-dotted border-indigo-400">[emoción]</strong>, voy a aplicar: <strong class="text-indigo-600">Técnica ___</strong>.</span>
+                                    </label>
+                                    <label class="flex items-start gap-2 bg-white p-3 rounded-lg border border-slate-200 cursor-pointer hover:border-indigo-300 transition">
+                                        <input type="checkbox" class="mt-0.5 accent-indigo-600">
+                                        <span>2. Mi frase de pausa será: "<span class="text-slate-400 border-b w-full inline-block max-w-[150px]">____________________</span>".</span>
+                                    </label>
+                                    <label class="flex items-start gap-2 bg-white p-3 rounded-lg border border-slate-200 cursor-pointer hover:border-indigo-300 transition">
+                                        <input type="checkbox" class="mt-0.5 accent-indigo-600">
+                                        <span>3. Me comprometo a validar al cliente antes de resolver.</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="flex justify-end no-print">
+                                <button onclick="window.print()" class="group flex items-center gap-2 px-5 py-2.5 bg-slate-800 hover:bg-slate-900 text-white rounded-xl font-semibold text-sm transition shadow-lg">
+                                    <svg class="w-4 h-4 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                                    Imprimir / Guardar PDF
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Anexo -->
+                <section id="anexo" class="mt-16 pl-16 md:pl-20 relative fade-in-up">
+                    <div class="absolute left-4 md:left-8 top-0 -translate-x-1/2 w-10 h-10 rounded-full bg-slate-100 border-4 border-white shadow-md flex items-center justify-center text-slate-500 font-bold text-xs z-10">7</div>
+                    
+                    <div class="border-2 border-dashed border-slate-300 rounded-3xl p-8 bg-slate-50/50">
+                        <div class="text-center mb-8">
+                            <span class="inline-block p-3 bg-white rounded-full shadow-sm mb-3">📎</span>
+                            <h3 class="text-2xl font-bold text-slate-800 font-serif">Anexo: Tarjeta de Bolsillo de Regulación Emocional</h3>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 relative overflow-hidden group hover:border-blue-300 transition-colors">
+                                <div class="absolute -right-4 -top-4 w-16 h-16 bg-blue-50 rounded-full group-hover:bg-blue-100 transition"></div>
+                                <span class="relative z-10 inline-block px-2 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded mb-3">PASO 1</span>
+                                <h4 class="font-bold text-slate-800 mb-3">Al Detectar la Emoción</h4>
+                                <ul class="text-sm text-slate-600 space-y-2 list-disc list-inside">
+                                    <li>Nombra lo que sientes (<em>"Estoy sintiendo frustración"</em>).</li>
+                                    <li>Nota tu respiración.</li>
+                                    <li>Recuerda: <em>No soy mi emoción.</em></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 relative overflow-hidden group hover:border-purple-300 transition-colors">
+                                <div class="absolute -right-4 -top-4 w-16 h-16 bg-purple-50 rounded-full group-hover:bg-purple-100 transition"></div>
+                                <span class="relative z-10 inline-block px-2 py-1 bg-purple-100 text-purple-700 text-xs font-bold rounded mb-3">PASO 2</span>
+                                <h4 class="font-bold text-slate-800 mb-3">Durante la Interacción</h4>
+                                <ul class="text-sm text-slate-600 space-y-2 list-disc list-inside">
+                                    <li>Aplica la Pausa (3 segundos).</li>
+                                    <li>Usa la frase puente: <em>"Voy a revisar esto con usted."</em></li>
+                                    <li>Mantén contacto visual y postura abierta.</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 relative overflow-hidden group hover:border-pink-300 transition-colors">
+                                <div class="absolute -right-4 -top-4 w-16 h-16 bg-pink-50 rounded-full group-hover:bg-pink-100 transition"></div>
+                                <span class="relative z-10 inline-block px-2 py-1 bg-pink-100 text-pink-700 text-xs font-bold rounded mb-3">PASO 3</span>
+                                <h4 class="font-bold text-slate-800 mb-3">Después de la Llamada</h4>
+                                <ul class="text-sm text-slate-600 space-y-2 list-disc list-inside">
+                                    <li>Haz 3 respiraciones 4-7-8.</li>
+                                    <li>Valida tu esfuerzo: <em>"Lo manejé bien."</em></li>
+                                    <li>Si persiste la tensión, camina 2 minutos.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="text-sm mb-2">Desarrollado para facilitar la excelencia en el servicio al cliente mediante la inteligencia emocional.</p>
+            <p class="text-xs text-slate-500">© 2026 Guía Didáctica de Formación Continua. Uso libre para capacitación interna.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Timer Logic
+        let timerInterval;
+        let timeRemaining = 15 * 60;
+        let isRunning = false;
+        const circle = document.getElementById('timer-circle');
+        const textDisplay = document.getElementById('timer-text');
+        const btn = document.getElementById('start-pause-btn');
+        const totalDash = 283;
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeRemaining / 60);
+            const seconds = timeRemaining % 60;
+            textDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            const progress = timeRemaining / (15 * 60);
+            const offset = totalDash - (progress * totalDash);
+            circle.style.strokeDashoffset = offset;
+        }
+
+        function toggleTimer() {
+            if (isRunning) {
+                clearInterval(timerInterval);
+                btn.textContent = "Continuar";
+                isRunning = false;
+            } else {
+                if (timeRemaining <= 0) timeRemaining = 15 * 60;
+                isRunning = true;
+                btn.textContent = "Pausar";
+                
+                timerInterval = setInterval(() => {
+                    if (timeRemaining > 0) {
+                        timeRemaining--;
+                        updateTimerDisplay();
+                    } else {
+                        clearInterval(timerInterval);
+                        isRunning = false;
+                        btn.textContent = "Iniciar Pausa";
+                        textDisplay.textContent = "00:00";
+                    }
+                }, 1000);
+            }
+        }
+
+        // Intersection Observer for Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+        document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+
+        // Active Navigation Link Highlighting
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('bg-indigo-50', 'text-indigo-700');
+                link.classList.add('text-slate-600');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('bg-indigo-50', 'text-indigo-700');
+                    link.classList.remove('text-slate-600');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+```
