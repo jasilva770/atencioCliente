@@ -1,9 +1,10 @@
+```html
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guía Didáctica + Guion del Expositor: Autogestión Emocional en Atención al Cliente</title>
+    <title>Guía Didáctica + Guion del Expositor: Autogestión Emocional</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.19/index.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@fontsource/playfair-display@5.0.19/index.min.css" rel="stylesheet">
@@ -15,21 +16,43 @@
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
         .fade-in-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
         .fade-in-up.visible { opacity: 1; transform: translateY(0); }
-        @media print {
-            .no-print { display: none !important; }
-            body { background: white; color: black; }
-            .card, .glass, .timeline-item { box-shadow: none !important; border: 1px solid #e2e8f0 !important; break-inside: avoid; }
-            details > summary { list-style: none; }
-            details[open] { display: block !important; }
-            details { display: block !important; margin-bottom: 1rem; }
-            .facilitator-script { background: #fffbeb; border: 1px solid #fcd34d; padding: 1rem; border-radius: 0.5rem; }
-        }
         a:focus-visible, button:focus-visible { outline: 2px solid #2563eb; outline-offset: 2px; border-radius: 4px; }
         .timeline-connector::before { content: ''; position: absolute; left: 2rem; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, #6366f1 0%, #ec4899 100%); }
         @media (min-width: 768px) { .timeline-connector::before { left: 3rem; } }
         details > summary::-webkit-details-marker { display: none; }
         .script-toggle-icon { transition: transform 0.3s ease; }
         details[open] .script-toggle-icon { transform: rotate(90deg); }
+        
+        /* PRINT OPTIMIZATION */
+        @page { margin: 12mm; size: A4; }
+        @media print {
+            .no-print { display: none !important; }
+            body { background: #fff !important; color: #111 !important; font-size: 10.5pt; line-height: 1.35; padding: 0 !important; }
+            header { background: none !important; color: #000 !important; padding: 0 0 12px 0 !important; border-bottom: 2px solid #000; margin-bottom: 15px; min-height: auto !important; }
+            header .relative { padding-top: 0 !important; padding-bottom: 0 !important; }
+            header h1 { font-size: 16pt !important; color: #000 !important; line-height: 1.2; }
+            header p, header .bg-white\/10 { background: none !important; border: none !important; padding: 2px 0 !important; color: #333 !important; }
+            aside, nav, button, .timer-ring, #timer-circle, #timer-text { display: none !important; }
+            .lg\:grid-cols-12 { display: block !important; }
+            .lg\:col-span-9 { width: 100% !important; padding-left: 0 !important; }
+            .grid, .md\:grid-cols-2, .md\:grid-cols-3 { display: flex !important; flex-direction: column !important; gap: 8px !important; }
+            .bg-white, .bg-slate-50, .bg-gradient-to-br, .bg-gradient-to-r { background: #fff !important; border: 1px solid #cbd5e1 !important; box-shadow: none !important; }
+            .bg-emerald-50, .bg-red-50, .bg-blue-50, .bg-slate-50 { background: #f8fafc !important; }
+            article, section { padding-left: 0 !important; margin-left: 0 !important; break-inside: avoid; margin-bottom: 12px; padding: 10px !important; page-break-inside: avoid; }
+            .timeline-connector::before { display: none !important; }
+            .pl-16, .md\:pl-20 { padding-left: 0 !important; }
+            .absolute, .fixed, .sticky { position: static !important; transform: none !important; left: auto !important; top: auto !important; display: inline-block !important; margin-right: 6px !important; padding: 2px 6px !important; background: #f1f5f9 !important; border-radius: 4px !important; font-weight: bold !important; font-size: 9pt !important; color: #333 !important; border: 1px solid #e2e8f0 !important; box-shadow: none !important; }
+            details { display: block !important; border: 1px solid #fbbf24 !important; background: #fffbeb !important; margin-top: 10px !important; padding: 8px !important; break-inside: avoid; }
+            details > summary { display: none !important; }
+            .facilitator-script { display: block !important; }
+            .fade-in-up { opacity: 1 !important; transform: none !important; }
+            h1, h2, h3, h4 { break-after: avoid; color: #000 !important; }
+            p, li, ul, table, .bg-white, .p-5 { break-inside: avoid; }
+            a { color: #000; text-decoration: none; }
+            .text-slate-600, .text-slate-200, .text-slate-300 { color: #333 !important; }
+            .text-white, .text-slate-100, .text-slate-50 { color: #000 !important; }
+            .bg-indigo-50, .bg-blue-50, .bg-purple-50, .bg-cyan-50, .bg-teal-50, .bg-rose-50, .bg-amber-50, .bg-emerald-50 { background-color: #f8fafc !important; border: 1px solid #e2e8f0 !important; }
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
@@ -73,7 +96,7 @@
         <!-- Sidebar -->
         <aside class="hidden lg:block lg:col-span-3 fade-in-up" style="transition-delay: 200ms;">
             <div class="sticky top-8">
-                <nav class="bg-white rounded-2xl shadow-lg shadow-slate-200/50 p-5 border border-slate-100 mb-4">
+                <nav class="bg-white rounded-2xl shadow-lg shadow-slate-200/50 p-5 border border-slate-100 mb-4 no-print">
                     <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4 px-2">Navegación</h3>
                     <ul class="space-y-1">
                         <li><a href="#objetivos" class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-50 text-slate-600 transition text-sm font-medium group"><span class="w-2 h-2 rounded-full bg-slate-300 group-hover:bg-indigo-500 transition"></span>Objetivos</a></li>
@@ -188,7 +211,7 @@
                 <!-- PAUSA -->
                 <article id="pausa" class="relative pl-16 md:pl-20">
                     <div class="absolute left-4 md:left-8 top-0 -translate-x-1/2 w-10 h-10 rounded-full bg-teal-100 border-4 border-white shadow-md flex items-center justify-center text-teal-700 font-bold text-xs z-10">2:00</div>
-                    <div class="bg-gradient-to-br from-teal-500 to-emerald-600 rounded-3xl p-1 shadow-xl shadow-teal-200/50">
+                    <div class="bg-gradient-to-br from-teal-500 to-emerald-600 rounded-3xl p-1 shadow-xl shadow-teal-200/50 no-print">
                         <div class="bg-white/90 backdrop-blur-sm rounded-[1.2rem] p-6 md:p-8">
                             <div class="flex flex-col md:flex-row items-center gap-8">
                                 <div class="flex-1">
@@ -345,6 +368,14 @@
                 '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg> Mostrar Todo el Guion';
         }
 
+        // Print Preparation: Force all details open, restore after
+        window.addEventListener('beforeprint', () => {
+            document.querySelectorAll('details').forEach(d => { d.dataset.wasOpen = d.open; d.open = true; });
+        });
+        window.addEventListener('afterprint', () => {
+            document.querySelectorAll('details').forEach(d => { d.open = d.dataset.wasOpen === 'true'; });
+        });
+
         // Scroll Observer
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
@@ -365,4 +396,4 @@
     </script>
 </body>
 </html>
-
+```
